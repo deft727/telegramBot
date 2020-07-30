@@ -16,21 +16,25 @@ sg=StopGame('lastkey.txt')
 @dp.message_handler(commands=['subscribe'])
 async def subscribe(message: types.Message):
 	if(not db.subscriber_exists(message.from_user.id)):
+		# если юзера нет в базе, добавляем его
 		db.add_subscriber(message.from_user.id)
 	else:
+		# если он уже есть, то просто обновляем ему статус подписки
 		db.update_subscription(message.from_user.id, True)
-	
-	await message.answer("Вы успешно подписались на Новинки!")
+
+	await message.answer("Вы успешно подписались на рассылку!")
 
 @dp.message_handler(commands=['unsubscribe'])
 async def unsubscribe(message: types.Message):
 	if(not db.subscriber_exists(message.from_user.id)):
+		# если юзера нет в базе, добавляем его с неактивной подпиской (запоминаем)
 		db.add_subscriber(message.from_user.id, False)
-		await message.answer("Вы и так не подписаны.")
+		await message.answer("Вы итак не подписаны.")
 	else:
+		# если он уже есть, то просто обновляем ему статус подписки
 		db.update_subscription(message.from_user.id, False)
-
-		await message.answer("Вы успешно отписались от рассылки.")
+		
+		await message.answer("Вы успешно отписаны от рассылки.")
 
 async def scheduled(wait_for):
 
