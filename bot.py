@@ -66,5 +66,5 @@ async def scheduled(wait_for):
 
 # запускаем лонг поллинг
 if __name__ == '__main__':
-	dp.loop.create_task(scheduled(10)) # пока что оставим 10 секунд (в качестве теста)
+	dp.loop.create_task(scheduled(30)) 
 	executor.start_polling(dp, skip_updates=True)

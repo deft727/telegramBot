@@ -22,7 +22,12 @@ class StopGame:
 			f.close()
 
 	def new_games(self):
-		r = requests.get(self.url)
+		while True:
+			try:
+				r = requests.get(self.url)
+				break
+			except:
+				r = requests.get(self.url)
 		html = BS(r.content, 'html.parser')
 
 		new = []

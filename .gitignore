@@ -1,10 +1,6 @@
 .vscode/
-venv/
+env/
 *.pyc
-../venv/
+../env/
 __pycache__/
-/venv/*
-config
-/config
-config.py
-/config.py
+/env/*
