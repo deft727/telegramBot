@@ -30,7 +30,7 @@ async def unsubscribe(message: types.Message):
 	else:
 		db.update_subscription(message.from_user.id, False)
 
-		await message.answer("Вы успешно отписаны от рассылки.")
+		await message.answer("Вы успешно отписались от рассылки.")
 
 async def scheduled(wait_for):
 
