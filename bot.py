@@ -47,7 +47,7 @@ async def scheduled(wait_for):
 
 		if(new_games):
 			# если игры есть, переворачиваем список и итерируем
-			# new_games.reverse()
+			new_games.reverse()
 			for ng in new_games:
 				nfo = sg.game_info(ng)
 
