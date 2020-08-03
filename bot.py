@@ -60,7 +60,7 @@ async def scheduled(wait_for):
 						await bot.send_photo(
 							s[1],
 							photo,
-							caption = nfo['title'] + "\n"  + nfo['excerpt'] + "\n" + nfo['price'] + "\n\n" + nfo['link'],
+							caption = nfo['title'] + "\n"  + nfo['excerpt'] + "\n" + nfo['price']+"\n"+nfo["opisanie"]+  "\n\n" + nfo['link'],
 							disable_notification = True
 						)
 
@@ -70,5 +70,5 @@ async def scheduled(wait_for):
 
 # запускаем лонг поллинг
 if __name__ == '__main__':
-	dp.loop.create_task(scheduled(30)) 
+	dp.loop.create_task(scheduled(60)) 
 	executor.start_polling(dp, skip_updates=True)

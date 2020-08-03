@@ -62,6 +62,7 @@ class StopGame:
 			"image": poster,
 			# 'https://parfumelover.herokuapp.com/',+poster,
 			"excerpt":html.select('.p-4')[0].text.split('\n')[2],
+			"opisanie": html.select('.font-italic')[0].text
 			"price":html.select('.display-4')[0].text
 		};
 
