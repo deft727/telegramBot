@@ -60,7 +60,7 @@ async def scheduled(wait_for):
 						await bot.send_photo(
 							s[1],
 							photo,
-							caption = nfo['title'] + "\n"  + nfo['excerpt'] + "\n" + nfo['price']+ "\n" +nfo['opisanie']+  "\n\n" + nfo['link'],
+							caption = nfo['title'] + "\n"  + nfo['excerpt'] + "\n" + "\n" + nfo['price']+"\n" + "\n" +nfo['opisanie']+  "\n\n" + nfo['link'],
 							disable_notification = True
 						)
 
