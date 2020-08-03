@@ -68,7 +68,15 @@ class StopGame:
 		return info
 
 	def download_image(self, url):
-		r = requests.get(url, allow_redirects=True)
+		while True:
+			try:
+
+				r = requests.get(url, allow_redirects=True)
+				break
+			except:
+
+				r = requests.get(url, allow_redirects=True)
+		
 
 		a = urlparse(url)
 		filename = os.path.basename(a.path)
@@ -78,7 +86,13 @@ class StopGame:
 
 
 	def get_lastkey(self):
-		r = requests.get(self.url)
+		while True:
+			try:
+				r = requests.get(self.url)
+				break
+			except:
+				r = requests.get(self.url)
+		
 		html = BS(r.content, 'html.parser')
 
 		items = html.select('.info-wrap > .fix-height >  a')
