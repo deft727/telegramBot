@@ -20,7 +20,7 @@ async def subscribe(message: types.Message):
 		db.add_subscriber(message.from_user.id)
 	else:
 		# если он уже есть, то просто обновляем ему статус подписки
-		db.update_subscription(message.from_user.id, True)
+		db.update_subscription(message.from_user.id, 1)
 
 	await message.answer("Вы успешно подписались на рассылку!")
 
@@ -28,11 +28,11 @@ async def subscribe(message: types.Message):
 async def unsubscribe(message: types.Message):
 	if(not db.subscriber_exists(message.from_user.id)):
 		# если юзера нет в базе, добавляем его с неактивной подпиской (запоминаем)
-		db.add_subscriber(message.from_user.id, False)
+		db.add_subscriber(message.from_user.id, 0)
 		await message.answer("Вы итак не подписаны.")
 	else:
 		# если он уже есть, то просто обновляем ему статус подписки
-		db.update_subscription(message.from_user.id, False)
+		db.update_subscription(message.from_user.id, 0)
 		
 		await message.answer("Вы успешно отписаны от рассылки.")
 

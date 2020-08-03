@@ -13,7 +13,7 @@ class SQLiter:
     def subscriber_exists(self, user_id):
         with self.connection:
             result = self.cursor.execute('SELECT * FROM `subscriptions` WHERE `user_id` = ?', (user_id,)).fetchall()
-            return bool(len(result))
+            return result
 
     def add_subscriber(self, user_id, status = True):
         with self.connection:
