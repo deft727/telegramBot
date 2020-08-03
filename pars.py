@@ -59,7 +59,7 @@ class StopGame:
 			"id": uri.replace('/show?id=','').strip(),
 			"title": html.select('.p-4')[0].text.split('\n')[1],
 			"link": link,
-			"image": poster,
+			"image":"https://parfumelover.herokuapp.com/static/images/"+ poster,
 			# 'https://parfumelover.herokuapp.com/',+poster,
 			"excerpt":html.select('.p-4')[0].text.split('\n')[2],
 			"opisanie": html.select('.font-italic')[0].text,
